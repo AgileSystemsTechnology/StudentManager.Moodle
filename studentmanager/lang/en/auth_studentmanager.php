@@ -12,4 +12,5 @@ $string['auth_studentmanagerdescription'] = 'Authenticate against Student Manage
 $string['pluginname'] = 'Student Manager';
 $string['auth_studentmanager_email'] = 'Student Manager Account Email';
 $string['auth_studentmanager_password'] = 'Student Manager Account Password';
-$string['auth_studentmanager_insitutionId'] = 'Student Manager InstitutionId';
+$string['auth_studentmanager_institutionId'] = 'Student Manager InstitutionId';
+$string['auth_studentmanager_subdomain'] = 'Student Manager Account Subdomain';

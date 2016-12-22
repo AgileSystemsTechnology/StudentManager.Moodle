@@ -38,12 +38,13 @@ class auth_plugin_studentmanager extends auth_plugin_base {
 
     public function getToken ($username, $password) {
         $institutionId = $this->config->institutionId; 
+        $subdomain = $this->config->subdomain; 
     
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_PORT => "8205",
-        CURLOPT_URL => "http://localhost:8205/api/token",
+		//CURLOPT_PORT => "8205",
+        CURLOPT_URL => "https://$subdomain.studentmanager.co.za/api/token",
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => "",
         CURLOPT_MAXREDIRS => 10,
@@ -189,6 +190,7 @@ class auth_plugin_studentmanager extends auth_plugin_base {
         set_config('email', $config->email, 'auth/studentmanager');
         set_config('password', $config->password, 'auth/studentmanager');
         set_config('institutionId', $config->institutionId, 'auth/studentmanager');
+        set_config('subdomain', $config->subdomain, 'auth/studentmanager');
 
         return true;
     }
@@ -215,7 +217,7 @@ class auth_plugin_studentmanager extends auth_plugin_base {
         $email = $this->config->email; 
         $password = $this->config->password; 
 
-        $tokenResponse = $this-> getToken($username, $password);
+        $tokenResponse = $this-> getToken($email, $password);
 
         $key = "access_token";
         
@@ -227,8 +229,8 @@ class auth_plugin_studentmanager extends auth_plugin_base {
             $curl = curl_init();
 
             curl_setopt_array($curl, array(
-            CURLOPT_PORT => "8205",
-            CURLOPT_URL => "http://localhost:8205/api/User/GetUser?email$username",
+            //CURLOPT_PORT => "8205",
+            CURLOPT_URL => "https://$subdomain.studentmanager.co.za/api/User/GetUser?email$username",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
