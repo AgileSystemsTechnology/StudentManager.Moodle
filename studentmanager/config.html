@@ -1,7 +1,7 @@
 <table cellspacing="0" cellpadding="5" border="0">
 
 <tr valign="top" class="required">
-    <td align="right"><label for="email"><?php print_string("auth_studentmanager_email", "auth_studentmanager") ?></label></td>
+    <td align="left"><label for="email"><?php print_string("auth_studentmanager_email", "auth_studentmanager") ?></label></td>
     <td>
         <input id="email" name="email" type="text" size="30" value="<?php echo $config->email?>" />
         <?php
@@ -12,11 +12,10 @@
 
         ?>
     </td>
-    <td><?php print_string("auth_studentmanager_email", "auth_studentmanager") ?></td>
 </tr>
 
 <tr valign="top" class="required">
-    <td align="right"><label for="password"><?php print_string("auth_studentmanager_password", "auth_studentmanager") ?></label></td>
+    <td align="left"><label for="password"><?php print_string("auth_studentmanager_password", "auth_studentmanager") ?></label></td>
     <td>
         <input id="password" name="password" type="text" size="30" value="<?php echo $config->password?>" />
         <?php
@@ -27,12 +26,11 @@
 
         ?>
     </td>
-    <td><?php print_string("auth_studentmanager_password", "auth_studentmanager") ?></td>
 </tr>
 
 
 <tr valign="top" class="required">
-    <td align="right"><label for="institutionId"><?php print_string("auth_studentmanager_institutionId", "auth_studentmanager") ?></label></td>
+    <td align="left"><label for="institutionId"><?php print_string("auth_studentmanager_institutionId", "auth_studentmanager") ?></label></td>
     <td>
         <input id="institutionId" name="institutionId" type="text" size="30" value="<?php echo $config->institutionId?>" />
         <?php
@@ -43,7 +41,22 @@
 
         ?>
     </td>
-    <td><?php print_string("auth_studentmanager_institutionId", "auth_studentmanager") ?></td>
 </tr>
+
+<tr valign="top" class="required">
+    <td align="left"><label for="subdomain"><?php print_string("auth_studentmanager_subdomain", "auth_studentmanager") ?></label></td>
+    <td>
+        <input id="subdomain" name="subdomain" type="text" size="30" value="<?php echo $config->subdomain?>" />
+        <?php
+
+        if (isset($err["subdomain"])) {
+            echo $OUTPUT->error_text($err["subdomain"]);
+        }
+
+        ?>
+    </td>
+</tr>
+
+
 
 </table>
